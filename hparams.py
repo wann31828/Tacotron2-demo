@@ -215,6 +215,8 @@ hparams = tf.contrib.training.HParams(
         "pu3 jing1 hai2 biao3 shi4",
 	"e2 luo2 si1 zhun3 bei4 tong2 mei3 guo2 jin4 xing2 dui4 hua4",
 	"fan3 zheng4 bu2 shi4 mo4 si1 ke1 yao4 tui4 chu1 zhong1 dao3 tiao2 yue1",
+    "guan1 shang3 yuan2 dan4 di4 yi1 dao4 shu3 guang1 guo2 jia1 sen1 lin2 you2",
+    "le4 qu1 you3 hao3 kang1",
 
 	# "guan1 yu2 xi1 zang4 de chuan2 shuo1 , you3 hen3 duo1 , li4 lai2 , dou1 shi4 chao2 sheng4 zhe3 de tian1 tang2 ,",
 	# "er2 zuo4 wei2 , zhong1 guo2 xi1 nan2 bian1 chui2 zhong4 di4 , ye3 dou1 shi4 zhong1 guo2 ling3 tu3 , bu4 ke3 fen1 ge1 de yi1 bu4 fen4 .",
