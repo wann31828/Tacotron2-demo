@@ -7,7 +7,6 @@ import io
 import re
 import os
 from datasets import audio
-from mainstay import Mainstay
 from hparams import hparams
 from infolog import log
 from tacotron.synthesizer import Synthesizer
