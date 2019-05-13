@@ -12,6 +12,7 @@ from infolog import log
 from tacotron.synthesizer import Synthesizer
 from wsgiref import simple_server
 from pypinyin import pinyin, lazy_pinyin, Style
+from num2chinese import num2chinese
 
 
 html_body = '''<html><title>Tacotron-2 Demo</title><meta charset='utf-8'>
@@ -103,8 +104,13 @@ class Syn:
 		res.data = out.getvalue()
 		res.content_type = "audio/wav"
 
+def digit2hanzi(matched):
+    intStr = matched.group()
+    intValue = int(intStr)
+    return(num2chinese(intValue))
+
 def chs_pinyin(text):
-	pys = pinyin(text, style=Style.TONE3)
+	pys = pinyin(re.sub('\d+', digit2hanzi, text), style=Style.TONE3)
 	results = []
 	sentence = []
 	for i in range(len(pys)):
