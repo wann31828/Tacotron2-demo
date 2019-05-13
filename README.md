@@ -187,3 +187,22 @@ Synthesizing the **waveforms** conditionned on previously synthesized Mel-spectr
 - [r9y9/wavenet_vocoder](https://github.com/r9y9/wavenet_vocoder)
 - [keithito/tacotron](https://github.com/keithito/tacotron)
 
+Data
+--------------------------------------------------------------------------------------
+There is no open-source mandarin speech synthesis dataset on the internet, this proj used thchs30 dataset to demostrate speech synthesis
+
+UPDATE
+
+open-source mandarin speech synthesis data from data-banker company, 开源的中文语音合成数据，感谢标贝公司
+
+【数据下载】https://weixinxcxdb.oss-cn-beijing.aliyuncs.com/gwYinPinKu/BZNSYP.rar 【数据说明】http://www.data-baker.com/open_source.html
+
+there is a pretrain model based on BZNSYP , you can download from :
+https://drive.google.com/open?id=1dB_I4Lz848rxu4ipT8y8VMpYdg6Zw9YK
+
+put the download file logs-Tacotron.tar.gz at this repo , then decompress it ,
+
+decompress the pretrain model :   
+$tar zxvf logs-Tacotron.tar.gz  
+run demo_server to test it (default is localhost:6006) :  
+$python demo_server.py --host <your_ip_address> --port <port_number>  
