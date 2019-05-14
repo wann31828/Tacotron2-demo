@@ -13,6 +13,7 @@ from tacotron.synthesizer import Synthesizer
 from wsgiref import simple_server
 from pypinyin import pinyin, lazy_pinyin, Style
 from num2chinese import num2chinese
+from custom_dict import apply_custom_dict
 
 
 html_body = '''<html><title>Tacotron-2 Demo</title><meta charset='utf-8'>
@@ -110,7 +111,7 @@ def digit2hanzi(matched):
     return(num2chinese(intValue))
 
 def chs_pinyin(text):
-	pys = pinyin(re.sub('\d+', digit2hanzi, text), style=Style.TONE3)
+	pys = pinyin(re.sub('\d+', digit2hanzi, text), style=Style.TONE3, errors='ignore')
 	results = []
 	sentence = []
 	for i in range(len(pys)):
@@ -150,9 +151,10 @@ def chs_pinyin(text):
 
 	return results
 
-
-api = falcon.API()
-api.add_route("/",Res())
-api.add_route("/synthesize",Syn())
-log("host:{},port:{}".format(args.host,int(args.port)))
-simple_server.make_server(args.host,int(args.port),api).serve_forever()
+if __name__ == "__main__":
+    apply_custom_dict()
+    api = falcon.API()
+    api.add_route("/",Res())
+    api.add_route("/synthesize",Syn())
+    log("host:{},port:{}".format(args.host,int(args.port)))
+    simple_server.make_server(args.host,int(args.port),api).serve_forever()
